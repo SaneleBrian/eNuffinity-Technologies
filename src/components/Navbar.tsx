@@ -1,20 +1,71 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "About", href: "#about" },
-  { name: "Tech Stack", href: "#tech" },
-  { name: "Process", href: "#process" },
-  { name: "FAQ", href: "#faq" },
-  { name: "Contact", href: "#contact" },
+  { name: "Services", id: "services" },
+  { name: "About", id: "about" },
+  { name: "Pricing", id: "pricing" },
+  { name: "Processes", id: "process" },
+  { name: "FAQ", id: "faq" },
+  { name: "Contact", id: "contact" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("services");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 120;
+
+      navLinks.forEach((link) => {
+        const section = document.getElementById(link.id);
+
+        if (!section) return;
+
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+
+        if (
+          scrollPosition >= top &&
+          scrollPosition < top + height
+        ) {
+          setActiveSection(link.id);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition - bodyRect - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      setActiveSection(id);
+    }
+
+    setIsOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass shadow-sm">
@@ -25,16 +76,35 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
-                className="relative text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm lg:text-base"
+                onClick={() => scrollToSection(link.id)}
+                className={`relative transition-colors duration-200 text-sm lg:text-base
+                ${
+                  activeSection === link.id
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }
+                after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px]
+                after:bg-gradient-to-r after:from-primary after:to-accent
+                after:transition-all after:duration-300
+                ${
+                  activeSection === link.id
+                    ? "after:w-full"
+                    : "after:w-0 hover:after:w-full"
+                }`}
               >
                 {link.name}
-              </a>
+              </button>
             ))}
+
             <ThemeToggle />
-            <Button variant="hero" size="sm">
+
+            <Button
+              variant="hero"
+              size="sm"
+              onClick={() => scrollToSection("contact")}
+            >
               Get Started
             </Button>
           </div>
@@ -54,27 +124,29 @@ const Navbar = () => {
           <div className="md:hidden py-6 border-t border-border bg-background/95 backdrop-blur-xl">
             <div className="flex flex-col gap-1 px-2">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.name}
-                  href={link.href}
-                  className="block px-4 py-3 text-base text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => scrollToSection(link.id)}
+                  className={`block px-4 py-3 text-base rounded-lg transition-colors text-left
+                  ${
+                    activeSection === link.id
+                      ? "text-foreground bg-muted"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
                 >
                   {link.name}
-                </a>
+                </button>
               ))}
             </div>
 
             <div className="flex items-center gap-4 mt-6 px-4">
               <ThemeToggle />
+
               <Button
                 variant="hero"
                 size="sm"
                 className="flex-1"
-                onClick={() => {
-                  setIsOpen(false);
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={() => scrollToSection("contact")}
               >
                 Get Started
               </Button>

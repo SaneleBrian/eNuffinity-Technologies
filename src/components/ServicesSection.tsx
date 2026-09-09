@@ -6,13 +6,9 @@ import {
   Code2,
   Layers,
   Boxes,
-  BarChart3,
-  Brain,
-  Link2,
   Smartphone,
   Monitor,
   Plug,
-  Wrench,
   Cloud,
   ArrowUpRight,
   Check,
@@ -22,54 +18,42 @@ const pricedServices = [
   {
     icon: Globe,
     title: "Web Development",
-    price: "R7,000",
-    period: "starting from",
-    description: "Responsive sites, PWAs, e-commerce, and SaaS platforms built with cutting-edge technologies for optimal performance.",
+    description: "Fast, responsive websites, PWAs, and e-commerce platforms built for startups and growing businesses. Modern, scalable, and optimized for conversions and SEO.",
     gradient: "from-blue-500 to-cyan-400",
     features: ["Responsive Design", "SEO Optimized", "CMS Integration", "Analytics Setup"],
   },
   {
     icon: Paintbrush,
     title: "Web Design",
-    price: "R3,000",
-    period: "starting from",
-    description: "Stunning, user-centered designs that captivate your audience and elevate your brand identity across all devices.",
+    description: "Clean, user-centered designs that strengthen your brand and convert visitors into customers — perfect for small to mid-sized businesses.",
     gradient: "from-violet-500 to-purple-400",
     features: ["UI/UX Design", "Brand Identity", "Wireframing", "Prototype Delivery"],
   },
   {
     icon: Server,
     title: "Web Hosting",
-    price: "R500",
-    period: "per month",
-    description: "Reliable, scalable hosting infrastructure with enterprise-grade security, keeping your systems running 24/7.",
+    description: "Reliable, secure hosting with 99.9% uptime, daily backups, and local support — built to keep your South African business online 24/7.",
     gradient: "from-emerald-500 to-teal-400",
     features: ["99.9% Uptime", "SSL Certificates", "Daily Backups", "24/7 Support"],
   },
   {
     icon: TestTube,
     title: "Software Testing",
-    price: "R3,500",
-    period: "starting from",
-    description: "Comprehensive QA and testing services to ensure your software is bug-free, performant, and production-ready.",
+    description: "Thorough QA and testing to ensure your product is stable, secure, and ready for real users — reducing costly fixes after launch.",
     gradient: "from-orange-500 to-amber-400",
     features: ["Manual Testing", "Automated Testing", "Performance Testing", "Security Audits"],
   },
   {
     icon: Code2,
     title: "Software Development",
-    price: "R12,000",
-    period: "starting from",
-    description: "End-to-end software solutions from desktop applications to enterprise systems, tailored to your business needs.",
+    description: "Custom software solutions tailored for startups and SMBs — from internal tools to customer-facing systems that help you scale efficiently.",
     gradient: "from-pink-500 to-rose-400",
     features: ["Custom Software", "API Development", "Cloud Integration", "Maintenance"],
   },
   {
     icon: Layers,
     title: "Full Stack Development",
-    price: "R20,000",
-    period: "starting from",
-    description: "Complete front-end and back-end development delivering robust, scalable applications with seamless experiences.",
+    description: "Complete front-to-back development delivering robust, scalable applications that grow with your business.",
     gradient: "from-indigo-500 to-blue-400",
     features: ["Frontend & Backend", "Database Design", "DevOps Setup", "Scalable Architecture"],
   },
@@ -79,73 +63,55 @@ const additionalServices = [
   {
     icon: Smartphone,
     title: "Mobile Development",
-    description: "Native (iOS/Android) and cross-platform (Flutter/React Native) apps delivering exceptional experiences on every device.",
+    description: "Native and cross-platform mobile apps (Flutter & React Native) that help startups and growing businesses engage customers on the go.",
     gradient: "from-red-500 to-pink-400",
   },
   {
     icon: Monitor,
     title: "Desktop Applications",
-    description: "Cross-platform desktop tools built with Electron, .NET, or Java for enterprise and business-critical needs.",
+    description: "Powerful cross-platform desktop tools built for business operations, internal teams, and enterprise workflows.",
     gradient: "from-sky-500 to-blue-400",
+  },
+  {
+    icon: TestTube,
+    title: "Automation & AI Solutions",
+    description: "Intelligent automation, AI-powered workflows, chatbots, and machine learning solutions that reduce manual work and drive smarter business decisions.",
+    gradient: "from-purple-500 to-violet-400",
   },
   {
     icon: Plug,
     title: "API & Backend Development",
-    description: "RESTful/GraphQL APIs, microservices architecture, and secure data handling with scalable backend infrastructure.",
+    description: "Secure, scalable REST/GraphQL APIs and backend systems with seamless third-party integrations — POPIA compliant.",
     gradient: "from-teal-500 to-emerald-400",
-  },
-  {
-    icon: Link2,
-    title: "Integration Services",
-    description: "Third-party integrations for verifications, background checks, KYC/AML, payment gateways, CRM/ERP systems. POPIA compliant.",
-    gradient: "from-indigo-500 to-blue-400",
   },
   {
     icon: Boxes,
     title: "SaaS Products",
-    description: "End-to-end SaaS development with subscription models, user management, and seamless third-party integrations.",
+    description: "End-to-end SaaS development for startups — subscription billing, user management, and scalable architecture to support rapid growth.",
     gradient: "from-violet-500 to-purple-400",
-  },
-  {
-    icon: BarChart3,
-    title: "Data Analysis",
-    description: "Transform raw data into actionable insights with advanced analytics, visualization dashboards, and reporting tools.",
-    gradient: "from-orange-500 to-amber-400",
-  },
-  {
-    icon: Brain,
-    title: "Machine Learning & AI",
-    description: "AI-powered solutions including predictive models, NLP, computer vision, and intelligent automation.",
-    gradient: "from-pink-500 to-rose-400",
   },
   {
     icon: Cloud,
     title: "Cloud & DevOps",
-    description: "Cloud migration (AWS/Azure/GCP), CI/CD pipelines, containerization, and infrastructure-as-code for seamless deployments.",
+    description: "Cloud migration, CI/CD pipelines, and infrastructure automation that reduce costs and improve reliability for growing companies.",
     gradient: "from-cyan-500 to-blue-400",
-  },
-  {
-    icon: Wrench,
-    title: "Maintenance & Support",
-    description: "Ongoing support, bug fixes, performance optimization, and feature enhancements to keep your software running smoothly.",
-    gradient: "from-amber-500 to-yellow-400",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-24 relative">
+    <section id="services" className="py-14 relative">
       <div className="absolute inset-0 hero-gradient opacity-50" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Our <span className="gradient-text">Services</span>
+            Our <span className="heading-accent">Services</span>
           </h2>
           <p className="text-muted-foreground">
-            Comprehensive technology solutions tailored to your business needs.
-            From concept to deployment, we've got you covered.
+            Practical technology solutions built for startups and small to mid-sized businesses in South Africa. 
+            From idea to growth — we help you move faster and scale smarter.
           </p>
         </div>
 
@@ -165,13 +131,6 @@ const ServicesSection = () => {
                 {service.title}
                 <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </h3>
-
-              <div className="mb-3">
-                <span className={`text-2xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                  {service.price}
-                </span>
-                <span className="text-muted-foreground text-sm ml-1.5">{service.period}</span>
-              </div>
 
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {service.description}
@@ -194,10 +153,10 @@ const ServicesSection = () => {
         {/* Additional Solutions Header */}
         <div className="text-center max-w-2xl mx-auto mt-20 mb-12">
           <h3 className="text-2xl md:text-3xl font-bold mb-3">
-            More <span className="gradient-text">Solutions</span>
+            More <span className="heading-accent">Solutions</span>
           </h3>
           <p className="text-muted-foreground">
-            We also specialize in these advanced technology domains. Contact us for a custom quote.
+            Advanced technology services designed to help growing businesses scale efficiently. Contact us for a custom quote.
           </p>
         </div>
 

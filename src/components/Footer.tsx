@@ -9,7 +9,7 @@ const footerLinks = {
     { name: "API & Integrations", href: "#services" },
     { name: "SaaS Products", href: "#services" },
     { name: "Cloud & DevOps", href: "#services" },
-    { name: "AI / Machine Learning", href: "#services" },
+    { name: "AI / Automation Services", href: "#services" },
   ],
   company: [
     { name: "About Us", href: "#about" },
@@ -96,7 +96,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} InfiniTechLabs (PTY) LTD. All rights reserved.
+            © {new Date().getFullYear()} eNuffinity Technologies (PTY) LTD. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
             Proudly South African 🇿🇦 — Building the future, one line of code at a time.

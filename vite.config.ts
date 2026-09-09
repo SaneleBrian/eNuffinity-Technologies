@@ -1,24 +1,25 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import path from "path";
 
-
 export default defineConfig({
-  server: {
-    host: "::",
-    port: 8080,
-    hmr: {
-      overlay: false,
-    },
-  },
-  plugins: [
-    react(),
-    
-  ],
+  plugins: [react()],
+
+  base: "/",
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // No css: { postcss: ... } needed — remove if present
+
+  build: {
+    outDir: "dist",
+  },
+
+  server: {
+    host: "::",
+    port: 8080,
+    hmr: { overlay: false },
+  },
 });

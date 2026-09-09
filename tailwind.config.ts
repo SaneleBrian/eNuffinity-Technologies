@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";   // ← Add this import
 
 const config: Config = {
   darkMode: ["class"],
@@ -8,10 +9,14 @@ const config: Config = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
 
-  theme: {
+ theme: {
     container: {
-      center: true,
-      padding: "2rem",
+      center: false,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "1.5rem",
+        lg: "2rem",
+      },
       screens: {
         "2xl": "1400px",
       },
@@ -64,7 +69,7 @@ const config: Config = {
   },
   
   plugins: [
-    require("tailwindcss-animate"),
+    tailwindcssAnimate,   // ← Use the imported module here
   ],
 };
 

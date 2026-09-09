@@ -3,22 +3,30 @@ import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import TechStackSection from "@/components/TechStackSection";
-import ProcessSection from "@/components/ProcessSection";
+import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen w-full flex flex-col bg-background">
       <Navbar />
-      <HeroSection />
-      <ServicesSection />
-      <AboutSection />
-      <TechStackSection />
-      <ProcessSection />
-      <FAQSection />
-      <ContactSection />
+
+      <main className="flex-1 w-full">
+        <HeroSection />
+        <ServicesSection />
+        <AboutSection />
+
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+          <PricingSection />
+          <TechStackSection />
+          <FAQSection />
+        </div>
+
+        <ContactSection />
+      </main>
+
       <Footer />
     </div>
   );

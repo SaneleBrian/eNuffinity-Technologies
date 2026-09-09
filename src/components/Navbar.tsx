@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { MenuIcon, CloseIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
@@ -86,7 +86,7 @@ const Navbar = () => {
                     : "text-muted-foreground hover:text-foreground"
                 }
                 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px]
-                after:bg-gradient-to-r after:from-primary after:to-accent
+                after:bg-accent
                 after:transition-all after:duration-300
                 ${
                   activeSection === link.id
@@ -115,7 +115,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <CloseIcon className="w-7 h-7" /> : <MenuIcon className="w-7 h-7" />}
           </button>
         </div>
 

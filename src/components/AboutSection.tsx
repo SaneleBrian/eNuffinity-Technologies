@@ -1,29 +1,29 @@
 import {
-  CheckCircle2,
-  Target,
-  Lightbulb,
-  Users,
-  ShieldCheck,
-  Award,
-  Globe,
-  TrendingUp,
-  Zap,
-  Building2,
-  Workflow,
-  Layers,
-  Cpu,
-  Database,
-  GitBranch,
-  Briefcase,
-  Heart,
-  ShoppingCart,
-  GraduationCap,
-  Truck,
-  Home,
-  Banknote,
-} from "lucide-react";
+  CheckmarkCircleIcon,
+  LocateIcon,
+  BulbIcon,
+  PeopleIcon,
+  ShieldCheckmarkIcon,
+  RibbonIcon,
+  GlobeIcon,
+  TrendingUpIcon,
+  FlashIcon,
+  BusinessIcon,
+  SettingsIcon,
+  LayersIcon,
+  HardwareChipIcon,
+  ServerIcon,
+  GitBranchIcon,
+  BriefcaseIcon,
+  HeartIcon,
+  CartIcon,
+  SchoolIcon,
+  CubeIcon,
+  HomeIcon,
+  CashIcon,
+} from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
-import industryFintech from "@/assets/industry-fintech.jpg";
+import industryFintech from "@/assets/industry-fintech.avif";
 import industryHealthcare from "@/assets/industry-healthcare.jpg";
 import industryEcommerce from "@/assets/industry-ecommerce.jpg";
 import industryLogistics from "@/assets/industry-logistics.jpg";
@@ -45,25 +45,25 @@ const features = [
 
 const values = [
   {
-    icon: Lightbulb,
+    icon: BulbIcon,
     title: "Innovation",
     description:
       "Constantly exploring new technologies — from AI to blockchain — to deliver cutting-edge, future-proof solutions.",
   },
   {
-    icon: ShieldCheck,
+    icon: ShieldCheckmarkIcon,
     title: "Reliability & Security",
     description:
       "Enterprise-grade security practices and encrypted integrations, critical for verification and background check services.",
   },
   {
-    icon: Users,
+    icon: PeopleIcon,
     title: "Client-Centric",
     description:
       "Your success is our success. We build lasting partnerships based on trust, transparency, and measurable results.",
   },
   {
-    icon: Target,
+    icon: LocateIcon,
     title: "Mission-Driven",
     description:
       "Empowering businesses with limitless, secure, and integrated software solutions that drive effortless growth.",
@@ -73,37 +73,37 @@ const values = [
 
 const capabilities = [
   {
-    icon: Globe,
+    icon: GlobeIcon,
     title: "Digital Presence & Marketing",
     description:
       "High-converting websites, SEO foundations, and brand-aligned web experiences that strengthen your commercial presence and accelerate digital marketing efforts.",
   },
   {
-    icon: Database,
+    icon: ServerIcon,
     title: "CRM & Business Systems",
     description:
       "Custom CRMs, ERPs, dashboards, and internal tools tailored to how your team actually works — replacing spreadsheets with software that scales.",
   },
   {
-    icon: Layers,
+    icon: LayersIcon,
     title: "Microservices & APIs",
     description:
       "Modern, decoupled architectures using REST, GraphQL, and event-driven services — built to evolve with your business without rewrites.",
   },
   {
-    icon: Workflow,
+    icon: SettingsIcon,
     title: "Process Automation",
     description:
       "Automate repetitive workflows, document handling, notifications, and integrations to cut costs, reduce errors, and dramatically improve delivery time.",
   },
   {
-    icon: GitBranch,
+    icon: GitBranchIcon,
     title: "Third-Party Integrations",
     description:
       "Seamless collaboration with major service providers — built natively on the partner's tech stack so your operations feel like one connected system.",
   },
   {
-    icon: Cpu,
+    icon: HardwareChipIcon,
     title: "AI & Intelligent Workflows",
     description:
       "Embed AI assistants, document understanding, and decision automation into your existing products to unlock new efficiency without disruption.",
@@ -111,14 +111,14 @@ const capabilities = [
 ];
 
 const industries = [
-  { icon: Banknote, label: "Fintech & Banking", image: industryFintech },
-  { icon: Heart, label: "Healthcare", image: industryHealthcare },
-  { icon: ShoppingCart, label: "E-commerce", image: industryEcommerce },
-  { icon: Truck, label: "Logistics", image: industryLogistics },
-  { icon: GraduationCap, label: "Education", image: industryEducation },
-  { icon: Home, label: "Real Estate", image: industryRealestate },
-  { icon: Briefcase, label: "Professional Services", image: industryServices },
-  { icon: Building2, label: "Enterprise SaaS", image: industrySaas },
+  { icon: CashIcon, label: "Fintech & Banking", image: industryFintech },
+  { icon: HeartIcon, label: "Healthcare", image: industryHealthcare },
+  { icon: CartIcon, label: "E-commerce", image: industryEcommerce },
+  { icon: CubeIcon, label: "Logistics", image: industryLogistics },
+  { icon: SchoolIcon, label: "Education", image: industryEducation },
+  { icon: HomeIcon, label: "Real Estate", image: industryRealestate },
+  { icon: BriefcaseIcon, label: "Professional Services", image: industryServices },
+  { icon: BusinessIcon, label: "Enterprise SaaS", image: industrySaas },
 ];
 
 const AnimatedBrandVisual = () => (
@@ -241,8 +241,8 @@ const AnimatedBrandVisual = () => (
 
     {/* Floating glass badge */}
     <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 glass rounded-xl px-4 py-3 flex items-center gap-3 whitespace-nowrap">
-      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-        <Award className="w-4 h-4 text-primary-foreground" />
+      <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center">
+        <RibbonIcon className="w-4 h-4 text-primary-foreground" />
       </div>
       <div className="text-left">
         <p className="text-xs font-semibold text-foreground">Founded 2024 · Johannesburg</p>
@@ -266,7 +266,7 @@ const AboutSection = () => {
             Who We Are
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            About <span className="heading-accent">eNuffinite Technologies</span>
+            About <span className="heading-accent">eNuffinity Technologies</span>
           </h2>
           <p className="text-muted-foreground">
             A forward-thinking software company born in Johannesburg, building secure
@@ -290,7 +290,7 @@ const AboutSection = () => {
             <p className="text-muted-foreground mb-4 leading-relaxed">
               Founded by{" "}
               <span className="text-foreground font-medium">Sanele Sithole</span>,
-              eNuffinite Technologies (PTY) LTD was born from a vision of infinite technological
+              eNuffinity Technologies (PTY) LTD was born from a vision of infinite technological
               possibilities. What started as a passion for building impactful software has
               grown into a forward-thinking company transforming businesses across South
               Africa and globally.
@@ -304,9 +304,9 @@ const AboutSection = () => {
             </p>
 
             {/* Mission */}
-            <div className="gradient-border rounded-xl p-5 bg-card">
+            <div className="border border-border rounded-xl p-5 bg-card">
               <div className="flex items-start gap-3">
-                <Target className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <LocateIcon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <p className="text-sm italic text-muted-foreground">
                   <span className="text-foreground font-semibold not-italic">Our Mission: </span>
                   "Empowering businesses with limitless, secure, and integrated software solutions that drive effortless growth."
@@ -338,9 +338,9 @@ const AboutSection = () => {
               key={cap.title}
               delay={i * 90}
               variant="up"
-              className="gradient-border rounded-xl p-6 bg-card hover:bg-secondary/30 hover:-translate-y-1 transition-all duration-300 group"
+              className="border border-border rounded-xl p-6 bg-card hover:bg-secondary/30 hover:-translate-y-1 transition-all duration-300 group"
             >
-              <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <cap.icon className="w-5 h-5 text-primary-foreground" />
               </div>
               <h4 className="text-base font-semibold mb-2">{cap.title}</h4>
@@ -353,7 +353,7 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-3 gap-5 mb-20">
           <Reveal delay={0} variant="up" className="rounded-2xl p-6 bg-card border border-border/50 relative overflow-hidden">
             <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-primary/10 blur-2xl" />
-            <TrendingUp className="w-7 h-7 text-primary mb-3 relative z-10" />
+            <TrendingUpIcon className="w-7 h-7 text-primary mb-3 relative z-10" />
             <h4 className="text-lg font-semibold mb-1 relative z-10">Stronger commercial presence</h4>
             <p className="text-sm text-muted-foreground relative z-10">
               Modern, fast websites that convert visitors into customers and amplify every
@@ -362,7 +362,7 @@ const AboutSection = () => {
           </Reveal>
           <Reveal delay={120} variant="up" className="rounded-2xl p-6 bg-card border border-border/50 relative overflow-hidden">
             <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-accent/10 blur-2xl" />
-            <Zap className="w-7 h-7 text-primary mb-3 relative z-10" />
+            <FlashIcon className="w-7 h-7 text-primary mb-3 relative z-10" />
             <h4 className="text-lg font-semibold mb-1 relative z-10">Faster delivery, lower cost</h4>
             <p className="text-sm text-muted-foreground relative z-10">
               Automation and integrations that remove manual work — so your team ships more
@@ -371,7 +371,7 @@ const AboutSection = () => {
           </Reveal>
           <Reveal delay={240} variant="up" className="rounded-2xl p-6 bg-card border border-border/50 relative overflow-hidden">
             <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-primary/10 blur-2xl" />
-            <ShieldCheck className="w-7 h-7 text-primary mb-3 relative z-10" />
+            <ShieldCheckmarkIcon className="w-7 h-7 text-primary mb-3 relative z-10" />
             <h4 className="text-lg font-semibold mb-1 relative z-10">Enterprise-grade by default</h4>
             <p className="text-sm text-muted-foreground relative z-10">
               Security, compliance, and observability baked in from day one — built for
@@ -390,7 +390,7 @@ const AboutSection = () => {
               Trusted across regulated and high-growth sectors.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {industries.map((ind, i) => (
               <Reveal
                 key={ind.label}
@@ -409,11 +409,11 @@ const AboutSection = () => {
                   />
                   {/* Dual overlay: bottom fade for label legibility + tint that matches both themes */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/10" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 mix-blend-overlay opacity-60 group-hover:opacity-90 transition-opacity" />
+                  <div className="absolute inset-0 bg-accent/10 mix-blend-overlay opacity-60 group-hover:opacity-90 transition-opacity" />
                   <div className="absolute inset-0 ring-1 ring-inset ring-border/40 group-hover:ring-primary/40 transition-colors rounded-2xl" />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/30">
+                  <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/30">
                     <ind.icon className="w-4 h-4 text-primary-foreground" />
                   </div>
                   <span className="text-sm font-semibold text-foreground drop-shadow-sm">{ind.label}</span>
@@ -442,7 +442,7 @@ const AboutSection = () => {
                 variant="up"
                 className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/40 hover:bg-secondary/30 transition-all"
               >
-                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                <CheckmarkCircleIcon className="w-5 h-5 text-primary flex-shrink-0" />
                 <span className="text-sm text-foreground">{feature}</span>
               </Reveal>
             ))}

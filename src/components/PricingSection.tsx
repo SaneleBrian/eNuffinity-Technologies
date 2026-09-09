@@ -1,5 +1,19 @@
 import { useState } from "react";
-import { Check, X, ArrowUpRight, Globe, Server, Monitor, Smartphone, Boxes, Sparkles, Shield, Zap, LifeBuoy, Info } from "lucide-react";
+import {
+  CheckmarkIcon,
+  CloseIcon,
+  OpenIcon,
+  GlobeIcon,
+  ServerIcon,
+  DesktopIcon,
+  PhonePortraitIcon,
+  CubeIcon,
+  StarIcon,
+  ShieldIcon,
+  FlashIcon,
+  HelpBuoyIcon,
+  InformationCircleIcon,
+} from "@/components/icons";
 import { Button } from "@/components/ui/button";
 
 type Package = {
@@ -8,7 +22,6 @@ type Package = {
   price: string;
   period: string;
   description: string;
-  gradient: string;
   popular: boolean;
   icon: React.ElementType;
   features: { text: string; included: boolean }[];
@@ -28,7 +41,7 @@ const categories: Category[] = [
   {
     id: "web",
     label: "Web Apps",
-    icon: Globe,
+    icon: GlobeIcon,
     note: "All packages are for web applications (websites). Prices vary based on complexity and features.",
     packages: [
       {
@@ -37,9 +50,8 @@ const categories: Category[] = [
         price: "From R10,000",
         period: "",
         description: "Suitable for small business websites and landing pages with limited functionality. Ideal for clients who already have hosting.",
-        gradient: "from-blue-500 to-cyan-400",
         popular: false,
-        icon: Zap,
+        icon: FlashIcon,
         highlight: "Quick & Clean",
         scope: ["Up to 5 pages", "Contact form", "2 revision rounds"],
         features: [
@@ -59,9 +71,8 @@ const categories: Category[] = [
         price: "From R18,000",
         period: "",
         description: "Everything you need to get your web application live and accessible to anyone via your domain or search engines.",
-        gradient: "from-primary to-accent",
         popular: true,
-        icon: Shield,
+        icon: ShieldIcon,
         highlight: "Best Value",
         scope: ["Up to 10 pages/modules", "Basic CMS/dashboard", "Up to 2 integrations", "2 revision rounds"],
         features: [
@@ -81,9 +92,8 @@ const categories: Category[] = [
         price: "From R35,000",
         period: "",
         description: "The complete package — design, build, test, host, and launch. Includes 3 months post-launch support to get you settled.",
-        gradient: "from-violet-500 to-purple-400",
         popular: false,
-        icon: Sparkles,
+        icon: StarIcon,
         highlight: "All-Inclusive",
         scope: ["Custom workflows", "Advanced integrations on quote", "3 revision rounds"],
         features: [
@@ -102,7 +112,7 @@ const categories: Category[] = [
   {
     id: "api",
     label: "API & Backend",
-    icon: Server,
+    icon: ServerIcon,
     note: "Prices vary based on API complexity, data models, and integration requirements. Contact us for a tailored quote.",
     packages: [
       {
@@ -111,9 +121,8 @@ const categories: Category[] = [
         price: "From R12,000",
         period: "",
         description: "A solid RESTful or GraphQL API with authentication and core endpoints — ready for your frontend or mobile app.",
-        gradient: "from-teal-500 to-emerald-400",
         popular: false,
-        icon: Zap,
+        icon: FlashIcon,
         highlight: "Essentials",
         scope: ["Up to 10 endpoints", "Single database", "2 revision rounds"],
         features: [
@@ -133,9 +142,8 @@ const categories: Category[] = [
         price: "From R25,000",
         period: "",
         description: "A fully deployed backend with third-party integrations, cloud hosting, and industry-standard security practices.",
-        gradient: "from-primary to-accent",
         popular: true,
-        icon: Shield,
+        icon: ShieldIcon,
         highlight: "Best Value",
         scope: ["Up to 2 integrations included", "One production environment", "30 days post-launch support"],
         features: [
@@ -155,9 +163,8 @@ const categories: Category[] = [
         price: "From R45,000",
         period: "",
         description: "A scalable backend architecture with advanced auth, monitoring, and 3 months of support for growing systems.",
-        gradient: "from-violet-500 to-purple-400",
         popular: false,
-        icon: Sparkles,
+        icon: StarIcon,
         highlight: "Full Power",
         scope: ["Scalable architecture", "Up to 4 integrations", "3 months support included"],
         features: [
@@ -176,7 +183,7 @@ const categories: Category[] = [
   {
     id: "desktop",
     label: "Desktop Apps",
-    icon: Monitor,
+    icon: DesktopIcon,
     note: "Desktop application pricing depends on platform targets, complexity, and integration needs.",
     packages: [
       {
@@ -185,9 +192,8 @@ const categories: Category[] = [
         price: "From R15,000",
         period: "",
         description: "A desktop application for one platform (Windows, macOS, or Linux) with core functionality and clean UI.",
-        gradient: "from-sky-500 to-blue-400",
         popular: false,
-        icon: Zap,
+        icon: FlashIcon,
         highlight: "One Platform",
         scope: ["Up to 8 screens", "Single platform target", "2 revision rounds"],
         features: [
@@ -207,9 +213,8 @@ const categories: Category[] = [
         price: "From R30,000",
         period: "",
         description: "A cross-platform desktop app (Electron / .NET MAUI) with auto-updates and a polished user experience.",
-        gradient: "from-primary to-accent",
         popular: true,
-        icon: Shield,
+        icon: ShieldIcon,
         highlight: "Best Value",
         scope: ["Up to 12 screens", "Local database integration", "30 days post-launch support"],
         features: [
@@ -229,9 +234,8 @@ const categories: Category[] = [
         price: "From R55,000",
         period: "",
         description: "Advanced desktop software with full integration, software licensing setup, and 3 months of support.",
-        gradient: "from-violet-500 to-purple-400",
         popular: false,
-        icon: Sparkles,
+        icon: StarIcon,
         highlight: "Advanced",
         scope: ["Cross-platform build", "Software licensing setup", "3 months support included"],
         features: [
@@ -250,7 +254,7 @@ const categories: Category[] = [
   {
     id: "mobile",
     label: "Mobile Apps",
-    icon: Smartphone,
+    icon: PhonePortraitIcon,
     note: "Mobile app pricing depends on platform (iOS/Android/both), features, and backend requirements.",
     packages: [
       {
@@ -259,9 +263,8 @@ const categories: Category[] = [
         price: "From R35,000",
         period: "",
         description: "A cross-platform mobile app (Flutter) for iOS or Android with essential features and clean design.",
-        gradient: "from-red-500 to-pink-400",
         popular: false,
-        icon: Zap,
+        icon: FlashIcon,
         highlight: "Starter",
         scope: ["Up to 5 screens", "Single user role", "No custom backend"],
         features: [
@@ -281,9 +284,8 @@ const categories: Category[] = [
         price: "From R60,000",
         period: "",
         description: "A cross-platform mobile app (Flutter/React Native) for both iOS and Android with backend integration. Suitable for MVPs and growing business apps.",
-        gradient: "from-primary to-accent",
         popular: true,
-        icon: Shield,
+        icon: ShieldIcon,
         highlight: "Best Value",
         scope: ["Up to 12 screens", "Basic push notifications", "30 days post-launch support"],
         features: [
@@ -303,9 +305,8 @@ const categories: Category[] = [
         price: "From R100,000",
         period: "",
         description: "A complete mobile solution with advanced features, analytics, and 3 months of support. Complex apps may require a custom quotation.",
-        gradient: "from-violet-500 to-purple-400",
         popular: false,
-        icon: Sparkles,
+        icon: StarIcon,
         highlight: "Full Suite",
         scope: ["Advanced animations", "Analytics integration", "3 months support included"],
         features: [
@@ -324,7 +325,7 @@ const categories: Category[] = [
   {
     id: "saas",
     label: "SaaS Products",
-    icon: Boxes,
+    icon: CubeIcon,
     note: "SaaS pricing depends on features, user management complexity, and third-party integrations required.",
     packages: [
       {
@@ -333,9 +334,8 @@ const categories: Category[] = [
         price: "From R35,000",
         period: "",
         description: "A minimum viable SaaS product with user auth, core features, and a subscription billing system.",
-        gradient: "from-indigo-500 to-blue-400",
         popular: false,
-        icon: Zap,
+        icon: FlashIcon,
         highlight: "MVP",
         scope: ["MVP only — limited feature set", "Single tenant setup", "1 admin dashboard"],
         features: [
@@ -355,9 +355,8 @@ const categories: Category[] = [
         price: "From R65,000",
         period: "",
         description: "A production-ready SaaS platform with multi-tenancy, integrations, and cloud deployment.",
-        gradient: "from-primary to-accent",
         popular: true,
-        icon: Shield,
+        icon: ShieldIcon,
         highlight: "Best Value",
         scope: ["Moderate multi-user SaaS", "Up to 3 integrations", "30 days post-launch support"],
         features: [
@@ -377,9 +376,8 @@ const categories: Category[] = [
         price: "From R120,000",
         period: "",
         description: "A scalable SaaS platform with white-label support, API access, and 3 months of support. Large-scale features quoted separately.",
-        gradient: "from-violet-500 to-purple-400",
         popular: false,
-        icon: Sparkles,
+        icon: StarIcon,
         highlight: "Advanced",
         scope: ["Scalable architecture", "White-label & API access", "3 months support included"],
         features: [
@@ -401,8 +399,7 @@ const carePlans = [
   {
     name: "Basic Care",
     price: "R999",
-    gradient: "from-blue-500 to-cyan-400",
-    icon: LifeBuoy,
+    icon: HelpBuoyIcon,
     bestFor: "Websites, landing pages, small business systems",
     features: [
       "Security updates",
@@ -416,8 +413,7 @@ const carePlans = [
   {
     name: "Growth Care",
     price: "R2,500",
-    gradient: "from-primary to-accent",
-    icon: Shield,
+    icon: ShieldIcon,
     bestFor: "Business systems, APIs, dashboards, mobile backends",
     features: [
       "Everything in Basic Care",
@@ -431,8 +427,7 @@ const carePlans = [
   {
     name: "Premium Care",
     price: "R5,000",
-    gradient: "from-violet-500 to-purple-400",
-    icon: Sparkles,
+    icon: StarIcon,
     bestFor: "SaaS, production systems, larger businesses",
     features: [
       "Everything in Growth Care",
@@ -465,7 +460,7 @@ const PricingSection = () => {
 
         {/* Global delivery note */}
         <div className="max-w-3xl mx-auto mb-10 p-4 rounded-xl border border-border bg-card/60 flex gap-3">
-          <Info className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+          <InformationCircleIcon className="w-5 h-5 text-primary shrink-0 mt-0.5" />
           <p className="text-sm text-muted-foreground leading-relaxed">
             All packages include initial delivery only. Ongoing support, updates, hosting, and maintenance are billed separately unless otherwise stated. Final scope and pricing are confirmed after a project discovery call.
           </p>
@@ -479,7 +474,7 @@ const PricingSection = () => {
               onClick={() => setActiveCategory(cat.id)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat.id
-                  ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/20"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                   : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/50"
               }`}
             >
@@ -494,17 +489,17 @@ const PricingSection = () => {
           {active.packages.map((pkg) => (
             <div
               key={pkg.name}
-              className={`relative group gradient-border rounded-2xl bg-card flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fade-in overflow-hidden ${
+              className={`relative group border border-border rounded-2xl bg-card flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fade-in overflow-hidden ${
                 pkg.popular
                   ? "ring-2 ring-primary shadow-xl shadow-primary/10 lg:scale-[1.03] z-10"
                   : "hover:shadow-primary/5"
               }`}
             >
-              {/* Top gradient accent bar */}
-              <div className={`h-1.5 w-full bg-gradient-to-r ${pkg.gradient}`} />
+              {/* Top accent bar */}
+              <div className="h-1.5 w-full bg-accent" />
 
               {pkg.popular && (
-                <div className="absolute -top-0 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-b-xl bg-gradient-to-r from-primary to-accent text-primary-foreground text-xs font-bold tracking-wider">
+                <div className="absolute -top-0 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-b-xl bg-primary text-primary-foreground text-xs font-bold tracking-wider">
                   MOST POPULAR
                 </div>
               )}
@@ -516,23 +511,21 @@ const PricingSection = () => {
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
                       <h3 className="text-xl sm:text-2xl font-bold">{pkg.name}</h3>
                       {pkg.highlight && (
-                        <span className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-gradient-to-r ${pkg.gradient} text-white`}>
+                        <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-accent text-accent-foreground">
                           {pkg.highlight}
                         </span>
                       )}
                     </div>
                     <p className="text-sm text-muted-foreground">{pkg.subtitle}</p>
                   </div>
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${pkg.gradient} bg-opacity-10 shrink-0`}>
-                    <pkg.icon className="w-5 h-5 text-white" />
+                  <div className="p-3 rounded-xl bg-accent/10 shrink-0">
+                    <pkg.icon className="w-5 h-5 text-accent" />
                   </div>
                 </div>
 
                 {/* Price */}
                 <div className="mb-5 pb-5 border-b border-border/50">
-                  <span
-                    className={`text-3xl sm:text-4xl font-extrabold bg-gradient-to-r ${pkg.gradient} bg-clip-text text-transparent`}
-                  >
+                  <span className="text-3xl sm:text-4xl font-extrabold text-accent">
                     {pkg.price}
                   </span>
                   {pkg.period && (
@@ -571,12 +564,12 @@ const PricingSection = () => {
                     {pkg.features.map((feature) => (
                       <li key={feature.text} className="flex items-start gap-3 text-sm">
                         {feature.included ? (
-                          <div className="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/15 flex items-center justify-center shrink-0">
-                            <Check className="w-3 h-3 text-emerald-500" />
+                          <div className="mt-0.5 w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center shrink-0">
+                            <CheckmarkIcon className="w-3 h-3 text-accent" />
                           </div>
                         ) : (
                           <div className="mt-0.5 w-5 h-5 rounded-full bg-muted/50 flex items-center justify-center shrink-0">
-                            <X className="w-3 h-3 text-muted-foreground/40" />
+                            <CloseIcon className="w-3 h-3 text-muted-foreground/40" />
                           </div>
                         )}
                         <span className={feature.included ? "text-foreground" : "text-muted-foreground/50"}>
@@ -596,7 +589,7 @@ const PricingSection = () => {
                   }
                 >
                   Get Started
-                  <ArrowUpRight className="w-4 h-4 ml-1" />
+                  <OpenIcon className="w-4 h-4 ml-1" />
                 </Button>
               </div>
             </div>
@@ -623,22 +616,22 @@ const PricingSection = () => {
             {carePlans.map((plan) => (
               <div
                 key={plan.name}
-                className="relative group gradient-border rounded-2xl bg-card flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden"
+                className="relative group border border-border rounded-2xl bg-card flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden"
               >
-                <div className={`h-1.5 w-full bg-gradient-to-r ${plan.gradient}`} />
+                <div className="h-1.5 w-full bg-accent" />
                 <div className="p-6 sm:p-8 flex flex-col flex-1">
                   <div className="flex items-start justify-between gap-3 mb-5">
                     <div>
                       <h4 className="text-xl sm:text-2xl font-bold mb-1">{plan.name}</h4>
                       <p className="text-xs text-muted-foreground">{plan.bestFor}</p>
                     </div>
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${plan.gradient} shrink-0`}>
-                      <plan.icon className="w-5 h-5 text-white" />
+                    <div className="p-3 rounded-xl bg-accent shrink-0">
+                      <plan.icon className="w-5 h-5 text-accent-foreground" />
                     </div>
                   </div>
 
                   <div className="mb-6 pb-5 border-b border-border/50">
-                    <span className={`text-3xl sm:text-4xl font-extrabold bg-gradient-to-r ${plan.gradient} bg-clip-text text-transparent`}>
+                    <span className="text-3xl sm:text-4xl font-extrabold text-accent">
                       {plan.price}
                     </span>
                     <span className="text-muted-foreground text-sm ml-2">/ month</span>
@@ -647,8 +640,8 @@ const PricingSection = () => {
                   <ul className="space-y-3 flex-1 mb-6">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-start gap-3 text-sm">
-                        <div className="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/15 flex items-center justify-center shrink-0">
-                          <Check className="w-3 h-3 text-emerald-500" />
+                        <div className="mt-0.5 w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center shrink-0">
+                          <CheckmarkIcon className="w-3 h-3 text-accent" />
                         </div>
                         <span className="text-foreground">{f}</span>
                       </li>
@@ -661,7 +654,7 @@ const PricingSection = () => {
                     onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                   >
                     Choose Plan
-                    <ArrowUpRight className="w-4 h-4 ml-1" />
+                    <OpenIcon className="w-4 h-4 ml-1" />
                   </Button>
                 </div>
               </div>
@@ -676,7 +669,7 @@ const PricingSection = () => {
         {/* ===== Fine Print ===== */}
         <div className="mt-20 max-w-4xl mx-auto p-6 rounded-2xl border border-border bg-card/40">
           <h4 className="text-base font-bold mb-4 flex items-center gap-2">
-            <Info className="w-4 h-4 text-primary" />
+            <InformationCircleIcon className="w-4 h-4 text-primary" />
             What's not included (the fine print)
           </h4>
           <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-muted-foreground">

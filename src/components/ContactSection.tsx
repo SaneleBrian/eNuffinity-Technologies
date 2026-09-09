@@ -2,19 +2,20 @@ import { useState, useRef } from "react";
 import type { FormEvent } from "react";
 
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  MessageCircle,
-  Clock,
-  Loader2,
-  ShieldCheck,
-  Sparkles,
-  CheckCircle2,
-  Calendar,
-} from "lucide-react";
+  MailIcon,
+  CallIcon,
+  LocationIcon,
+  SendIcon,
+  ChatbubbleIcon,
+  TimeIcon,
+  ReloadIcon,
+  ShieldCheckmarkIcon,
+  StarIcon,
+  CheckmarkCircleIcon,
+  CalendarIcon,
+} from "@/components/icons";
 import { Button } from "@/components/ui/button";
+import { LegalModal } from "@/components/LegalModal";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
 
@@ -31,30 +32,30 @@ const trustPoints = [
 
 const contactMethods = [
   {
-    icon: Mail,
+    icon: MailIcon,
     label: "Email",
     value: "hello@enuffinity.co.za",
     href: "mailto:hello@enuffinity.co.za",
   },
   {
-    icon: Phone,
+    icon: CallIcon,
     label: "Phone",
     value: "+27 64 666 4311",
     href: "tel:+27646664311",
   },
   {
-    icon: MessageCircle,
+    icon: ChatbubbleIcon,
     label: "WhatsApp",
     value: "+27 64 666 4311",
     href: "https://wa.me/27646664311",
   },
   {
-    icon: MapPin,
+    icon: LocationIcon,
     label: "Location",
     value: "Johannesburg, South Africa",
   },
   {
-    icon: Clock,
+    icon: TimeIcon,
     label: "Consultation",
     value: "Free 30-min discovery call",
   },
@@ -105,12 +106,12 @@ const ContactSection = () => {
           {/* Left — Trust + Contact info (2 cols) */}
           <div className="lg:col-span-2 space-y-6">
             {/* Discovery call card */}
-            <div className="gradient-border rounded-2xl p-6 bg-card relative overflow-hidden">
+            <div className="border border-border rounded-2xl p-6 bg-card relative overflow-hidden">
               <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-primary/10 blur-2xl" />
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                    <Calendar className="w-5 h-5 text-primary-foreground" />
+                  <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center">
+                    <CalendarIcon className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Free Discovery Call</h3>
@@ -124,7 +125,7 @@ const ContactSection = () => {
                 <ul className="space-y-2">
                   {trustPoints.map((point) => (
                     <li key={point} className="flex items-start gap-2 text-sm text-foreground/90">
-                      <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckmarkCircleIcon className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                       <span>{point}</span>
                     </li>
                   ))}
@@ -170,7 +171,7 @@ const ContactSection = () => {
 
             {/* Reassurance footer */}
             <div className="glass rounded-xl p-4 flex items-center gap-3">
-              <ShieldCheck className="w-5 h-5 text-primary flex-shrink-0" />
+              <ShieldCheckmarkIcon className="w-5 h-5 text-primary flex-shrink-0" />
               <p className="text-xs text-muted-foreground leading-relaxed">
                 Your information is handled in line with <span className="text-foreground font-medium">POPIA</span> and{" "}
                 <span className="text-foreground font-medium">GDPR</span>. We never share details with third parties.
@@ -180,12 +181,12 @@ const ContactSection = () => {
 
           {/* Right — Form (3 cols) */}
           <div className="lg:col-span-3">
-            <div className="gradient-border rounded-2xl p-8 bg-card relative overflow-hidden">
+            <div className="border border-border rounded-2xl p-8 bg-card relative overflow-hidden">
               <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-6">
-                  <Sparkles className="w-4 h-4 text-primary" />
+                  <StarIcon className="w-4 h-4 text-primary" />
                   <span className="text-xs font-mono uppercase tracking-widest text-primary">
                     Project Brief
                   </span>
@@ -201,24 +202,28 @@ const ContactSection = () => {
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
+                      <label htmlFor="first_name" className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
                         First Name
                       </label>
                       <input
+                        id="first_name"
                         name="first_name"
                         type="text"
+                        autoComplete="given-name"
                         required
                         className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
                         placeholder="John"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
+                      <label htmlFor="last_name" className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
                         Last Name
                       </label>
                       <input
+                        id="last_name"
                         name="last_name"
                         type="text"
+                        autoComplete="family-name"
                         required
                         className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
                         placeholder="Doe"
@@ -228,24 +233,28 @@ const ContactSection = () => {
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
+                      <label htmlFor="email" className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
                         Work Email
                       </label>
                       <input
+                        id="email"
                         name="email"
                         type="email"
+                        autoComplete="email"
                         required
                         className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
                         placeholder="john@company.com"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
+                      <label htmlFor="phone" className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
                         Phone (optional)
                       </label>
                       <input
+                        id="phone"
                         name="phone"
                         type="tel"
+                        autoComplete="tel"
                         className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
                         placeholder="+27..."
                       />
@@ -253,61 +262,47 @@ const ContactSection = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
+                    <label htmlFor="company" className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
                       Company (optional)
                     </label>
                     <input
+                      id="company"
                       name="company"
                       type="text"
+                      autoComplete="organization"
                       className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
                       placeholder="Acme Pty Ltd"
                     />
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
-                        Project Type
-                      </label>
-                      <select
-                        name="project_type"
-                        className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-foreground"
-                      >
-                        <option value="">Select a type</option>
-                        <option value="Web Development">Web Development</option>
-                        <option value="Mobile Development">Mobile Development</option>
-                        <option value="Desktop Application">Desktop Application</option>
-                        <option value="API / Backend Development">API / Backend Development</option>
-                        <option value="Integration Services">Integration Services</option>
-                        <option value="SaaS Product">SaaS Product</option>
-                        <option value="CRM / Internal Tools">CRM / Internal Tools</option>
-                        <option value="Process Automation">Process Automation</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
-                        Estimated Budget
-                      </label>
-                      <select
-                        name="budget"
-                        className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-foreground"
-                      >
-                        <option value="">Select a range</option>
-                        <option value="< R20k">Under R20,000</option>
-                        <option value="R20k - R50k">R20,000 – R50,000</option>
-                        <option value="R50k - R150k">R50,000 – R150,000</option>
-                        <option value="R150k+">R150,000+</option>
-                        <option value="Not sure">Not sure yet</option>
-                      </select>
-                    </div>
+                  <div>
+                    <label htmlFor="project_type" className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
+                      Project Type
+                    </label>
+                    <select
+                      id="project_type"
+                      name="project_type"
+                      className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-foreground"
+                    >
+                      <option value="">Select a type</option>
+                      <option value="Web Development">Web Development</option>
+                      <option value="Mobile Development">Mobile Development</option>
+                      <option value="Desktop Application">Desktop Application</option>
+                      <option value="API / Backend Development">API / Backend Development</option>
+                      <option value="Integration Services">Integration Services</option>
+                      <option value="SaaS Product">SaaS Product</option>
+                      <option value="CRM / Internal Tools">CRM / Internal Tools</option>
+                      <option value="Process Automation">Process Automation</option>
+                      <option value="Other">Other</option>
+                    </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
+                    <label htmlFor="message" className="block text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2">
                       Project Details
                     </label>
                     <textarea
+                      id="message"
                       name="message"
                       rows={5}
                       required
@@ -316,23 +311,46 @@ const ContactSection = () => {
                     />
                   </div>
 
+                  <div className="flex items-start gap-3">
+                    <input
+                      id="consent"
+                      name="consent"
+                      type="checkbox"
+                      value="yes"
+                      required
+                      className="mt-1 h-4 w-4 shrink-0 rounded-sm border border-primary text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 accent-primary"
+                    />
+                    <label htmlFor="consent" className="text-xs text-muted-foreground leading-relaxed">
+                      I consent to eNuffinity Technologies processing my personal information to respond
+                      to this enquiry, in accordance with the{" "}
+                      <LegalModal
+                        policy="privacy"
+                        trigger={
+                          <button
+                            type="button"
+                            className="text-primary underline underline-offset-2 hover:text-primary/80"
+                          >
+                            Privacy Policy
+                          </button>
+                        }
+                      />
+                      .
+                    </label>
+                  </div>
+
                   <Button variant="hero" size="lg" className="w-full" type="submit" disabled={sending}>
                     {sending ? (
                       <>
                         Sending...
-                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <ReloadIcon className="w-4 h-4 animate-spin" />
                       </>
                     ) : (
                       <>
                         Schedule a Free Consultation
-                        <Send className="w-4 h-4" />
+                        <SendIcon className="w-4 h-4" />
                       </>
                     )}
                   </Button>
-
-                  <p className="text-xs text-muted-foreground text-center">
-                    By submitting this form, you agree to be contacted regarding your enquiry.
-                  </p>
                 </form>
               </div>
             </div>

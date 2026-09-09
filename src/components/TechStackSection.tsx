@@ -1,16 +1,22 @@
 import {
-  Search, FileText, Palette, Code2, TestTube, Rocket, HeadphonesIcon,
-} from "lucide-react";
+  SearchIcon,
+  DocumentTextIcon,
+  ColorPaletteIcon,
+  CodeSlashIcon,
+  FlaskIcon,
+  RocketIcon,
+  HeadsetIcon,
+} from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 
 const steps = [
-  { icon: Search, title: "Discovery", description: "We dive deep into your business goals, target audience, and technical requirements." },
-  { icon: FileText, title: "Planning & Wireframing", description: "Detailed project roadmap, wireframes, and architecture planning with Agile milestones." },
-  { icon: Palette, title: "Design", description: "User-centered UI/UX design with interactive prototypes — iterated until perfect." },
-  { icon: Code2, title: "Development", description: "Clean, scalable code built with modern frameworks and secure data handling." },
-  { icon: TestTube, title: "Testing & QA", description: "Rigorous manual and automated testing for performance, security, and integration." },
-  { icon: Rocket, title: "Deployment", description: "Smooth deployment with CI/CD pipelines, monitoring, and zero-downtime releases." },
-  { icon: HeadphonesIcon, title: "Support & Maintenance", description: "Ongoing support, feature enhancements, and proactive monitoring." },
+  { icon: SearchIcon, title: "Discovery", description: "We dive deep into your business goals, target audience, and technical requirements." },
+  { icon: DocumentTextIcon, title: "Planning & Wireframing", description: "Detailed project roadmap, wireframes, and architecture planning with Agile milestones." },
+  { icon: ColorPaletteIcon, title: "Design", description: "User-centered UI/UX design with interactive prototypes — iterated until perfect." },
+  { icon: CodeSlashIcon, title: "Development", description: "Clean, scalable code built with modern frameworks and secure data handling." },
+  { icon: FlaskIcon, title: "Testing & QA", description: "Rigorous manual and automated testing for performance, security, and integration." },
+  { icon: RocketIcon, title: "Deployment", description: "Smooth deployment with CI/CD pipelines, monitoring, and zero-downtime releases." },
+  { icon: HeadsetIcon, title: "Support & Maintenance", description: "Ongoing support, feature enhancements, and proactive monitoring." },
 ];
 
 const HowWeWorkSection = () => {
@@ -42,8 +48,8 @@ const HowWeWorkSection = () => {
                 variant="up"
                 className="group relative rounded-2xl p-6 bg-card border border-border/60 hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
-                {/* Decorative gradient blob */}
-                <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-gradient-to-br from-primary/15 to-accent/10 blur-3xl opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500 pointer-events-none" />
+                {/* Decorative glow */}
+                <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-accent/10 blur-3xl opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500 pointer-events-none" />
 
                 {/* Subtle grid pattern */}
                 <div
@@ -65,8 +71,8 @@ const HowWeWorkSection = () => {
                 </span>
 
                 <div className="relative">
-                  <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
-                    <step.icon className="w-5 h-5 text-primary-foreground" />
+                  <div className="relative w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
+                    <step.icon className="w-5 h-5 text-accent-foreground" />
                     {/* Pulse ring */}
                     <span className="absolute inset-0 rounded-xl ring-2 ring-primary/30 group-hover:ring-primary/60 group-hover:scale-125 group-hover:opacity-0 transition-all duration-700 pointer-events-none" />
                   </div>
@@ -75,7 +81,7 @@ const HowWeWorkSection = () => {
                     <span className="text-[10px] font-bold tracking-widest text-primary uppercase">
                       Step {index + 1}
                     </span>
-                    <div className="h-px flex-1 bg-gradient-to-r from-primary/30 to-transparent" />
+                    <div className="h-px flex-1 bg-primary/20" />
                   </div>
 
                   <h4 className="text-base font-semibold mb-2 text-foreground">{step.title}</h4>
@@ -83,7 +89,7 @@ const HowWeWorkSection = () => {
                 </div>
 
                 {/* Bottom progress bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
               </Reveal>
             ))}
           </div>

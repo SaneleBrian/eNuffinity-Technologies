@@ -1,100 +1,88 @@
 import {
-  Globe,
-  Paintbrush,
-  Server,
-  TestTube,
-  Code2,
-  Layers,
-  Boxes,
-  Smartphone,
-  Monitor,
-  Plug,
-  Cloud,
-  ArrowUpRight,
-  Check,
-} from "lucide-react";
+  GlobeIcon,
+  ColorPaletteIcon,
+  ServerIcon,
+  FlaskIcon,
+  CodeSlashIcon,
+  LayersIcon,
+  CubeIcon,
+  PhonePortraitIcon,
+  DesktopIcon,
+  HardwareChipIcon,
+  CloudIcon,
+  OpenIcon,
+  CheckmarkIcon,
+} from "@/components/icons";
 
 const pricedServices = [
   {
-    icon: Globe,
+    icon: GlobeIcon,
     title: "Web Development",
     description: "Fast, responsive websites, PWAs, and e-commerce platforms built for startups and growing businesses. Modern, scalable, and optimized for conversions and SEO.",
-    gradient: "from-blue-500 to-cyan-400",
     features: ["Responsive Design", "SEO Optimized", "CMS Integration", "Analytics Setup"],
   },
   {
-    icon: Paintbrush,
+    icon: ColorPaletteIcon,
     title: "Web Design",
     description: "Clean, user-centered designs that strengthen your brand and convert visitors into customers — perfect for small to mid-sized businesses.",
-    gradient: "from-violet-500 to-purple-400",
     features: ["UI/UX Design", "Brand Identity", "Wireframing", "Prototype Delivery"],
   },
   {
-    icon: Server,
+    icon: ServerIcon,
     title: "Web Hosting",
     description: "Reliable, secure hosting with 99.9% uptime, daily backups, and local support — built to keep your South African business online 24/7.",
-    gradient: "from-emerald-500 to-teal-400",
     features: ["99.9% Uptime", "SSL Certificates", "Daily Backups", "24/7 Support"],
   },
   {
-    icon: TestTube,
+    icon: FlaskIcon,
     title: "Software Testing",
     description: "Thorough QA and testing to ensure your product is stable, secure, and ready for real users — reducing costly fixes after launch.",
-    gradient: "from-orange-500 to-amber-400",
     features: ["Manual Testing", "Automated Testing", "Performance Testing", "Security Audits"],
   },
   {
-    icon: Code2,
+    icon: CodeSlashIcon,
     title: "Software Development",
     description: "Custom software solutions tailored for startups and SMBs — from internal tools to customer-facing systems that help you scale efficiently.",
-    gradient: "from-pink-500 to-rose-400",
     features: ["Custom Software", "API Development", "Cloud Integration", "Maintenance"],
   },
   {
-    icon: Layers,
+    icon: LayersIcon,
     title: "Full Stack Development",
     description: "Complete front-to-back development delivering robust, scalable applications that grow with your business.",
-    gradient: "from-indigo-500 to-blue-400",
     features: ["Frontend & Backend", "Database Design", "DevOps Setup", "Scalable Architecture"],
   },
 ];
 
 const additionalServices = [
   {
-    icon: Smartphone,
+    icon: PhonePortraitIcon,
     title: "Mobile Development",
     description: "Native and cross-platform mobile apps (Flutter & React Native) that help startups and growing businesses engage customers on the go.",
-    gradient: "from-red-500 to-pink-400",
   },
   {
-    icon: Monitor,
+    icon: DesktopIcon,
     title: "Desktop Applications",
     description: "Powerful cross-platform desktop tools built for business operations, internal teams, and enterprise workflows.",
-    gradient: "from-sky-500 to-blue-400",
   },
   {
-    icon: TestTube,
+    icon: FlaskIcon,
     title: "Automation & AI Solutions",
     description: "Intelligent automation, AI-powered workflows, chatbots, and machine learning solutions that reduce manual work and drive smarter business decisions.",
-    gradient: "from-purple-500 to-violet-400",
   },
   {
-    icon: Plug,
+    icon: HardwareChipIcon,
     title: "API & Backend Development",
     description: "Secure, scalable REST/GraphQL APIs and backend systems with seamless third-party integrations — POPIA compliant.",
-    gradient: "from-teal-500 to-emerald-400",
   },
   {
-    icon: Boxes,
+    icon: CubeIcon,
     title: "SaaS Products",
     description: "End-to-end SaaS development for startups — subscription billing, user management, and scalable architecture to support rapid growth.",
-    gradient: "from-violet-500 to-purple-400",
   },
   {
-    icon: Cloud,
+    icon: CloudIcon,
     title: "Cloud & DevOps",
     description: "Cloud migration, CI/CD pipelines, and infrastructure automation that reduce costs and improve reliability for growing companies.",
-    gradient: "from-cyan-500 to-blue-400",
   },
 ];
 
@@ -110,7 +98,7 @@ const ServicesSection = () => {
             Our <span className="heading-accent">Services</span>
           </h2>
           <p className="text-muted-foreground">
-            Practical technology solutions built for startups and small to mid-sized businesses in South Africa. 
+            Practical technology solutions built for startups and small to mid-sized businesses in South Africa.
             From idea to growth — we help you move faster and scale smarter.
           </p>
         </div>
@@ -120,16 +108,16 @@ const ServicesSection = () => {
           {pricedServices.map((service, index) => (
             <div
               key={service.title}
-              className="group relative gradient-border rounded-2xl p-6 bg-card hover:bg-secondary/30 transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              className="group relative border border-border rounded-2xl p-6 bg-card hover:bg-secondary/30 transition-all duration-300 hover:-translate-y-1 flex flex-col"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon className="w-6 h-6 text-background" />
+              <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <service.icon className="w-6 h-6 text-accent-foreground" />
               </div>
 
               <h3 className="text-xl font-semibold mb-1 flex items-center justify-between">
                 {service.title}
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                <OpenIcon className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </h3>
 
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
@@ -139,13 +127,11 @@ const ServicesSection = () => {
               <ul className="mt-auto space-y-2">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check className="w-4 h-4 shrink-0 text-emerald-400" />
+                    <CheckmarkIcon className="w-4 h-4 shrink-0 text-accent" />
                     {feature}
                   </li>
                 ))}
               </ul>
-
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
             </div>
           ))}
         </div>
@@ -165,22 +151,20 @@ const ServicesSection = () => {
           {additionalServices.map((service, index) => (
             <div
               key={service.title}
-              className="group relative gradient-border rounded-2xl p-6 bg-card hover:bg-secondary/30 transition-all duration-300 hover:-translate-y-1"
+              className="group relative border border-border rounded-2xl p-6 bg-card hover:bg-secondary/30 transition-all duration-300 hover:-translate-y-1"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon className="w-6 h-6 text-background" />
+              <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <service.icon className="w-6 h-6 text-accent-foreground" />
               </div>
 
               <h3 className="text-xl font-semibold mb-2 flex items-center justify-between">
                 {service.title}
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                <OpenIcon className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 {service.description}
               </p>
-
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
             </div>
           ))}
         </div>

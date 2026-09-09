@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
+import CookieConsent from "@/components/CookieConsent";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -14,6 +15,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <CookieConsent />
 
       <BrowserRouter>
         <Routes>

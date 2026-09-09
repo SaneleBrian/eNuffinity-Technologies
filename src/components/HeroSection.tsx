@@ -1,23 +1,23 @@
 import {
-  ArrowRight,
-  Sparkles,
-  Globe,
-  Smartphone,
-  Monitor,
-  Code2,
-  Link2,
-  TrendingUp,
-} from "lucide-react";
+  ArrowForwardIcon,
+  StarIcon,
+  GlobeIcon,
+  PhonePortraitIcon,
+  DesktopIcon,
+  CodeSlashIcon,
+  LinkIcon,
+  TrendingUpIcon,
+} from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const quickProps = [
-  { icon: Globe, label: "Web Dev" },
-  { icon: Smartphone, label: "Mobile Dev" },
-  { icon: Monitor, label: "Desktop Apps" },
-  { icon: Code2, label: "API Development" },
-  { icon: Link2, label: "Integrations" },
-  { icon: TrendingUp, label: "Scalable Solutions" },
+  { icon: GlobeIcon, label: "Web Dev" },
+  { icon: PhonePortraitIcon, label: "Mobile Dev" },
+  { icon: DesktopIcon, label: "Desktop Apps" },
+  { icon: CodeSlashIcon, label: "API Development" },
+  { icon: LinkIcon, label: "Integrations" },
+  { icon: TrendingUpIcon, label: "Scalable Solutions" },
 ];
 
 const HeroSection = () => {
@@ -43,7 +43,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 md:mb-8 animate-fade-in">
-            <Sparkles className="w-4 h-4 text-primary" />
+            <StarIcon className="w-4 h-4 text-primary" />
             <span className="text-sm text-muted-foreground">
               Powering Ambitious Ideas Across South Africa & Beyond
             </span>
@@ -55,7 +55,7 @@ const HeroSection = () => {
             style={{ animationDelay: "0.1s" }}
           >
             Where Ideas Become{" "}
-            <span className="gradient-text">Scalable Reality</span>
+            <span className="text-accent">Scalable Reality</span>
             <br />
             Through Intelligent Software
           </h1>
@@ -86,7 +86,7 @@ const HeroSection = () => {
               }
             >
               Explore What We Build
-              <ArrowRight className="w-5 h-5" />
+              <ArrowForwardIcon className="w-5 h-5" />
             </Button>
             <Button
               variant="heroOutline"
@@ -115,28 +115,6 @@ const HeroSection = () => {
                 <span className="text-xs font-medium text-muted-foreground text-center">
                   {prop.label}
                 </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Stats / Trust Signals */}
-          <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-12 md:mt-14 animate-fade-in"
-            style={{ animationDelay: "0.4s" }}
-          >
-            {[
-              { value: "200+", label: "Solutions Delivered" },
-              { value: "50+", label: "Businesses Empowered" },
-              { value: "5+", label: "Years of Innovation" },
-              { value: "24/7", label: "Dedicated Support" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold gradient-text">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground mt-1">
-                  {stat.label}
-                </div>
               </div>
             ))}
           </div>

@@ -1,5 +1,17 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronRight, Shield, Clock, Code, FileText, Headphones, Globe, DollarSign, Layers, MessageSquareText, Sparkles } from "lucide-react";
+import {
+  ChevronForwardIcon,
+  ShieldIcon,
+  TimeIcon,
+  CodeSlashIcon,
+  DocumentTextIcon,
+  HeadsetIcon,
+  GlobeIcon,
+  CashIcon,
+  LayersIcon,
+  ChatbubbleIcon,
+  StarIcon,
+} from "@/components/icons";
 
 function useScrollReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,49 +35,49 @@ const faqs = [
   {
     question: "What pricing models do you offer?",
     answer: "We offer flexible pricing: fixed-price projects for well-defined scopes, hourly rates for ongoing work, and monthly retainers for continuous development and support. We'll recommend the best model based on your project needs.",
-    icon: DollarSign,
+    icon: CashIcon,
     category: "Business",
   },
   {
     question: "How do you handle data privacy in integrations?",
     answer: "Security is at our core. All integrations use encrypted connections (TLS/SSL), we follow POPIA and GDPR compliance standards, and sensitive data like KYC/AML information is handled with strict access controls and audit trails.",
-    icon: Shield,
+    icon: ShieldIcon,
     category: "Security",
   },
   {
     question: "What's your approach to third-party API reliability?",
     answer: "We implement retry mechanisms, circuit breakers, and fallback strategies for all third-party integrations. We also set up monitoring and alerting so issues are caught and resolved before they impact your users.",
-    icon: Layers,
+    icon: LayersIcon,
     category: "Technical",
   },
   {
     question: "What is the typical project timeline?",
     answer: "Timelines vary by complexity: a standard website takes 2-4 weeks, web applications 4-8 weeks, and enterprise software or mobile apps 8-16+ weeks. We provide a detailed timeline during our discovery phase.",
-    icon: Clock,
+    icon: TimeIcon,
     category: "Process",
   },
   {
     question: "Do you offer NDA and confidentiality agreements?",
     answer: "Absolutely. We're happy to sign NDAs before any project discussions. Protecting your intellectual property and business information is a priority.",
-    icon: FileText,
+    icon: DocumentTextIcon,
     category: "Legal",
   },
   {
     question: "Can you work with our existing tech stack?",
     answer: "Yes! We're experienced with a wide range of technologies and can integrate with or extend your existing systems. We'll assess your current stack and recommend the best approach for your goals.",
-    icon: Code,
+    icon: CodeSlashIcon,
     category: "Technical",
   },
   {
     question: "Do you provide post-launch support?",
     answer: "Yes, we offer comprehensive post-launch maintenance packages including bug fixes, performance monitoring, security updates, and feature enhancements. Our 24/7 support ensures your software stays in top shape.",
-    icon: Headphones,
+    icon: HeadsetIcon,
     category: "Support",
   },
   {
     question: "What industries do you serve?",
     answer: "We work across fintech, healthcare, e-commerce, logistics, education, real estate, and more. Our integration expertise with verification and compliance APIs makes us particularly strong in regulated industries.",
-    icon: Globe,
+    icon: GlobeIcon,
     category: "Business",
   },
 ];
@@ -113,11 +125,11 @@ const FAQSection = () => {
         <div className="grid lg:grid-cols-[320px_1fr] gap-8 items-start">
           {/* Sticky intro panel */}
           <aside className="lg:sticky lg:top-24 space-y-4">
-            <div className="gradient-border rounded-2xl p-6 bg-card relative overflow-hidden">
+            <div className="border border-border rounded-2xl p-6 bg-card relative overflow-hidden">
               <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-primary/10 blur-2xl" />
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-3">
-                  <Sparkles className="w-4 h-4 text-primary" />
+                  <StarIcon className="w-4 h-4 text-primary" />
                   <span className="text-xs font-mono uppercase tracking-widest text-primary">Why ask us</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2 leading-snug">
@@ -148,7 +160,7 @@ const FAQSection = () => {
               href="#contact"
               className="hidden lg:flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors px-2 pt-2"
             >
-              <MessageSquareText className="w-4 h-4" />
+              <ChatbubbleIcon className="w-4 h-4" />
               Have a different question? Ask us directly →
             </a>
           </aside>
@@ -208,7 +220,7 @@ const FAQSection = () => {
                       </div>
 
                       <div className="flex items-start gap-3">
-                        <ChevronRight
+                        <ChevronForwardIcon
                           className={`w-4 h-4 mt-1 shrink-0 transition-transform duration-300 ${
                             isOpen ? "rotate-90 text-primary" : "text-muted-foreground"
                           }`}
@@ -253,7 +265,7 @@ const FAQSection = () => {
           }`}
           style={{ transitionDelay: cta.isVisible ? "200ms" : "0ms" }}
         >
-          <div className="gradient-border rounded-2xl bg-card/80 p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="border border-border rounded-2xl bg-card/80 p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-lg font-semibold text-foreground mb-1">Still have questions?</h3>
               <p className="text-muted-foreground text-sm">
@@ -262,10 +274,10 @@ const FAQSection = () => {
             </div>
             <a
               href="#contact"
-              className="shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-6 py-3 rounded-lg hover:shadow-xl hover:shadow-primary/30 hover:scale-105 active:scale-100 transition-all duration-300 text-sm"
+              className="shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold hover:bg-primary/90 px-6 py-3 rounded-lg hover:shadow-xl hover:shadow-primary/30 hover:scale-105 active:scale-100 transition-all duration-300 text-sm"
             >
               Get in Touch
-              <ChevronRight className="w-4 h-4" />
+              <ChevronForwardIcon className="w-4 h-4" />
             </a>
           </div>
         </div>

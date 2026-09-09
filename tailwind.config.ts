@@ -11,15 +11,17 @@ const config: Config = {
 
  theme: {
     container: {
-      center: false,
+      center: true,
       padding: {
         DEFAULT: "1rem",
         sm: "1.5rem",
         lg: "2rem",
+        xl: "3rem",
       },
-      screens: {
-        "2xl": "1400px",
-      },
+      // No max-width cap: the container should always span the full
+      // viewport width (with padding) instead of locking to a fixed
+      // width on large screens.
+      screens: {},
     },
 
     extend: {

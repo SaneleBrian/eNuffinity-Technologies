@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Moon, Sun } from "lucide-react";
+import { MoonIcon, SunnyIcon } from "@/components/icons";
 
 const ThemeToggle = () => {
   const [dark, setDark] = useState(false);
@@ -36,9 +36,9 @@ const ThemeToggle = () => {
       aria-label="Toggle theme"
     >
       {dark ? (
-        <Sun className="w-4 h-4 text-foreground" />
+        <SunnyIcon className="w-4 h-4 text-foreground" />
       ) : (
-        <Moon className="w-4 h-4 text-foreground" />
+        <MoonIcon className="w-4 h-4 text-foreground" />
       )}
     </button>
   );

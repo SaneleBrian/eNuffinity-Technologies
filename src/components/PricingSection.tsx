@@ -678,7 +678,6 @@ const PricingSection = () => {
             <li>• Source code is transferred upon full payment.</li>
             <li>• Delivery timelines vary based on project complexity and client feedback turnaround.</li>
             <li>• Projects with advanced requirements may require a custom quotation.</li>
-            <li>• Final scope and pricing are confirmed after a project discovery call.</li>
           </ul>
         </div>
       </div>

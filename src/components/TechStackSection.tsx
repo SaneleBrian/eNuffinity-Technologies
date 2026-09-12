@@ -5,7 +5,7 @@ import {
   CodeSlashIcon,
   FlaskIcon,
   RocketIcon,
-  HeadsetIcon,
+  ConstructIcon,
 } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 
@@ -16,7 +16,7 @@ const steps = [
   { icon: CodeSlashIcon, title: "Development", description: "Clean, scalable code built with modern frameworks and secure data handling." },
   { icon: FlaskIcon, title: "Testing & QA", description: "Rigorous manual and automated testing for performance, security, and integration." },
   { icon: RocketIcon, title: "Deployment", description: "Smooth deployment with CI/CD pipelines, monitoring, and zero-downtime releases." },
-  { icon: HeadsetIcon, title: "Support & Maintenance", description: "Ongoing support, feature enhancements, and proactive monitoring." },
+  { icon: ConstructIcon, title: "Support & Maintenance", description: "Ongoing support, feature enhancements, and proactive monitoring." },
 ];
 
 const HowWeWorkSection = () => {

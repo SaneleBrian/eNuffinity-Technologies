@@ -113,7 +113,7 @@ const capabilities = [
 const industries = [
   { icon: CashIcon, label: "Fintech & Banking", image: industryFintech },
   { icon: HeartIcon, label: "Healthcare", image: industryHealthcare },
-  { icon: CartIcon, label: "E-commerce", image: industryEcommerce },
+  { icon: CartIcon, label: "E-commerce", image: industryEcommerce, imagePosition: "center 85%" },
   { icon: CubeIcon, label: "Logistics", image: industryLogistics },
   { icon: SchoolIcon, label: "Education", image: industryEducation },
   { icon: HomeIcon, label: "Real Estate", image: industryRealestate },
@@ -405,6 +405,7 @@ const AboutSection = () => {
                     loading="lazy"
                     width={768}
                     height={512}
+                    style={{ objectPosition: ind.imagePosition ?? "center" }}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 saturate-[1.05] contrast-[1.02]"
                   />
                   {/* Dual overlay: bottom fade for label legibility + tint that matches both themes */}
